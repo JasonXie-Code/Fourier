@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">傅里叶</string>
+    <string name="spectrum_mode">频谱模式</string>
+    <string name="oscilloscope_mode">示波器模式</string>
+    <string name="frequency_scale">频率缩放</string>
+    <string name="linear_scale">线性</string>
+    <string name="log_scale">对数</string>
+    <string name="twelve_tet_scale">律制</string>
+    <string name="spectrum_slope">频谱斜率 (dB/octave)</string>
+    <string name="record_audio">录制音频</string>
+    <string name="stop_recording">停止录制</string>
+    <string name="save_recording">保存录制</string>
+    <string name="frequency_marker">频率标记</string>
+    <string name="peak_detection">峰值检测</string>
+    <string name="peak_threshold_db">峰值检测阈值 (dB)</string>
+    <string name="peak_count">峰值数量</string>
+    <string name="gain">增益</string>
+    <string name="oscilloscope_stroke_width">示波器线条粗细</string>
+    <string name="fft_size">FFT大小</string>
+    <string name="spectrum_fft_size">频谱 FFT 大小</string>
+    <string name="spectrum_fft_size_desc">频谱分析专用 FFT 点数，影响频率分辨率和更新率</string>
+    <string name="sample_rate">采样率</string>
+    <string name="permission_required">需要麦克风权限</string>
+    <string name="grant_permission">授予权限</string>
+    <string name="select_fft_size">选择FFT大小</string>
+    <string name="frequency_resolution">频率分辨率</string>
+    <string name="performance_warning">性能警告</string>
+    <string name="large_fft_warning">大FFT大小可能影响实时性能，更新频率会降低</string>
+    <string name="overlap_ratio">重叠率</string>
+    <string name="select_overlap_ratio">选择重叠率</string>
+    <string name="overlap_ratio_0">无重叠 (0%)</string>
+    <string name="overlap_ratio_25">低重叠 (25%)</string>
+    <string name="overlap_ratio_50">中重叠 (50%)</string>
+    <string name="overlap_ratio_75">高重叠 (75%)</string>
+    <string name="overlap_ratio_info">重叠率越高，更新频率越高，但CPU占用也更高</string>
+    <string name="select_sample_rate">选择采样率</string>
+    <string name="sample_rate_changed">采样率已更改为: %1$d Hz</string>
+    <string name="sample_rate_not_supported">设备不支持此采样率</string>
+    <string name="sample_rate_recording_warning">请先停止录制再更改采样率</string>
+    <string name="import_audio_file">导入音频文件</string>
+    <string name="file_mode">文件模式</string>
+    <string name="mic_mode">麦克风模式</string>
+    <string name="select_audio_file">选择音频文件</string>
+    <string name="file_loaded">文件已加载: %1$s</string>
+    <string name="file_load_failed">文件加载失败</string>
+    <string name="switch_to_file_mode">切换到文件分析模式</string>
+    <string name="switch_to_mic_mode">切换到麦克风模式</string>
+    <string name="play_recordings">播放录制</string>
+    <string name="select_recording">选择录制文件</string>
+    <string name="no_recordings">没有找到录制文件</string>
+    <string name="playing">播放中</string>
+    <string name="paused">已暂停</string>
+    <string name="stopped">已停止</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="stop">停止</string>
+    <string name="waterfall_mode">瀑布图模式</string>
+    <string name="visualizer_mode">可视化模式</string>
+    <string name="sound_level_meter_mode">分贝计模式</string>
+    <string name="select_mode">选择模式</string>
+    <string name="clear_waterfall">清空瀑布图</string>
+    <string name="more">更多</string>
+    <string name="display_options">显示选项</string>
+    <string name="settings">设置</string>
+    <string name="fft_settings">FFT 设置</string>
+    <string name="start_display">启动</string>
+    <string name="stop_display">停止</string>
+    <string name="file_progress">播放进度</string>
+    <string name="waveform_color">波形颜色</string>
+    <string name="current_color">当前颜色</string>
+    <string name="click_color_to_adjust">点击色块调节 RGB</string>
+    <string name="custom_color">自定义</string>
+    <string name="custom_color_collapse">收起</string>
+    
+    <!-- 信号源 -->
+    <string name="audio_source">信号源</string>
+    <string name="audio_source_mic_raw">原始麦克风</string>
+    <string name="audio_source_mic_raw_desc">无系统降噪/增强处理</string>
+    <string name="audio_source_mic">麦克风</string>
+    <string name="audio_source_mic_desc">系统默认处理</string>
+    <string name="audio_source_system">系统声音</string>
+    <string name="audio_source_system_desc">捕获设备播放的声音 (需 Android 10+)</string>
+    <string name="audio_source_changed">信号源已更改</string>
+    <string name="audio_source_system_not_supported">系统声音捕获权限被拒绝或不支持</string>
+    <string name="audio_source_system_starting">正在启动系统声音捕获...</string>
+    <string name="audio_source_system_active">系统声音捕获已启动</string>
+    <string name="audio_source_system_stopped">系统声音捕获已停止</string>
+    
+    <!-- 示波器同步 -->
+    <string name="oscilloscope_sync">示波器同步</string>
+    <string name="oscilloscope_trigger">触发同步</string>
+    <string name="oscilloscope_trigger_desc">启用触发同步，稳定波形显示</string>
+    <string name="trigger_level">触发电平</string>
+    <string name="trigger_level_desc">信号穿越此电平时触发 (dB)</string>
+    <string name="trigger_level_input_hint">输入 -90 ~ 0 的数值 (dB)</string>
+    <string name="trigger_mode">触发模式</string>
+    <string name="trigger_mode_rising">上升沿</string>
+    <string name="trigger_mode_falling">下降沿</string>
+    <string name="trigger_mode_both">双沿</string>
+    <string name="single_trigger">单次触发</string>
+    <string name="single_trigger_desc">只触发一次后冻结波形，长按屏幕重新激活</string>
+    <string name="trigger_status_triggered">已触发</string>
+    <string name="trigger_status_waiting">等待触发</string>
+    <string name="trigger_status_off">未启用</string>
+    
+    <!-- 触发稳定性设置 -->
+    <string name="trigger_stability">触发稳定性</string>
+    <string name="trigger_hysteresis">迟滞量</string>
+    <string name="trigger_hysteresis_desc">防止噪声导致的误触发，值越大抗噪能力越强</string>
+    <string name="trigger_holdoff">保持时间</string>
+    <string name="trigger_holdoff_desc">触发后锁定一段时间，防止同周期多次触发</string>
+    <string name="trigger_holdoff_auto">自动</string>
+    <string name="trigger_holdoff_manual">手动</string>
+    <string name="trigger_coupling">触发耦合</string>
+    <string name="trigger_coupling_dc">DC</string>
+    <string name="trigger_coupling_ac">AC</string>
+    <string name="trigger_coupling_hf_reject">高频抑制</string>
+    <string name="trigger_coupling_lf_reject">低频抑制</string>
+    <string name="trigger_noise_reject">噪声抑制</string>
+    <string name="trigger_noise_reject_desc">增强抗噪声能力，会略微降低触发灵敏度</string>
+    
+    <!-- 设置选项卡 -->
+    <string name="tab_general">通用</string>
+    <string name="tab_spectrum">频谱模式</string>
+    <string name="tab_oscilloscope">示波器</string>
+    <string name="tab_waterfall">瀑布图</string>
+    <string name="no_settings_yet">暂无特定设置</string>
+    <string name="show_info_panel">显示信息面板</string>
+    <string name="show_info_panel_desc">在左上角显示采样率、模式相关信息</string>
+    <string name="waterfall_sensitivity">灵敏度</string>
+    <string name="waterfall_sensitivity_desc">调整颜色映射的灵敏度，值越高弱信号越明显</string>
+    <string name="sensitivity_low">低</string>
+    <string name="sensitivity_normal">中</string>
+    <string name="sensitivity_high">高</string>
+    <string name="sensitivity_very_high">极高</string>
+    <string name="waterfall_time_resolution">滚动速度</string>
+    <string name="waterfall_time_resolution_desc">每秒滚动多少秒的数据（s/s）。1.0 为实时，2.0 为二倍速。图像始终以屏幕刷新率更新。</string>
+    <string name="waterfall_time_resolution_hint">10 ~ 500 毫秒</string>
+    <string name="waterfall_color_palette">色板</string>
+    <string name="waterfall_color_palette_desc">瀑布图颜色映射方案</string>
+    <string name="waterfall_color_rainbow">彩虹</string>
+    <string name="waterfall_color_grayscale">灰度</string>
+    <string name="waterfall_color_blackred">黑红</string>
+    <string name="waterfall_color_bluegreen">蓝绿</string>
+    <string name="waterfall_fft_size">FFT 大小</string>
+    <string name="waterfall_fft_size_desc">瀑布图专用 FFT 点数，影响频率分辨率</string>
+    <string name="waterfall_fft_size_hint">256 ~ 16384</string>
+    
+    <!-- 辅助线粗细 -->
+    <string name="grid_stroke_width">网格线粗细</string>
+    <string name="grid_stroke_width_desc">调整辅助网格线的粗细</string>
+    <string name="marker_stroke_width">标记线粗细</string>
+    <string name="marker_stroke_width_desc">调整频率标记线的粗细</string>
+    <string name="grid_stroke_width_hint">0.5 ~ 5.0</string>
+    
+    <!-- 示波器设置 -->
+    <string name="oscilloscope_settings">示波器设置</string>
+    <string name="scale_sensitivity">缩放灵敏度</string>
+    <string name="scale_sensitivity_desc">控制双指缩放的响应速度</string>
+    <string name="scale_sensitivity_low">低</string>
+    <string name="scale_sensitivity_medium">中</string>
+    <string name="scale_sensitivity_high">高</string>
+    <string name="data_insufficient">数据不足</string>
+    <string name="pan_hint">双指左右滑动查看历史数据</string>
+    <string name="oscilloscope_large_window_peak_envelope">大窗口使用峰值包络</string>
+    <string name="oscilloscope_large_window_peak_envelope_desc">开启后显示 min/max 峰值包络（更粗）；关闭为 RMS 包络（更接近小窗口观感）</string>
+    
+    <!-- 信息栏设置 -->
+    <string name="info_panel_settings">信息栏设置</string>
+    <string name="info_items">显示项目</string>
+    <string name="info_items_desc">选择要在信息栏显示的内容</string>
+    
+    <!-- 频谱信息项 -->
+    <string name="info_spectrum_peak_freq">峰值频率</string>
+    <string name="info_spectrum_peak_amp">峰值幅度</string>
+    <string name="info_spectrum_fps">帧率</string>
+    <string name="info_spectrum_fft">FFT/采样率</string>
+    <string name="info_spectrum_scale_mode">频率刻度</string>
+    <string name="info_spectrum_zoom">缩放比例</string>
+    
+    <!-- 示波器滤波器设置 -->
+    <string name="oscilloscope_filter">信号滤波</string>
+    <string name="oscilloscope_filter_desc">对波形信号应用滤波处理</string>
+    <string name="filter_enabled">启用滤波</string>
+    <string name="filter_type">滤波器类型</string>
+    <string name="filter_type_lowpass">低通</string>
+    <string name="filter_type_highpass">高通</string>
+    <string name="filter_type_bandpass">带通</string>
+    <string name="filter_type_notch">陷波</string>
+    <string name="filter_cutoff_freq">截止频率</string>
+    <string name="filter_cutoff_freq_desc">低通/高通滤波器的截止频率 (Hz)</string>
+    <string name="filter_cutoff_freq_hint">20 ~ 20000 Hz</string>
+    <string name="filter_center_freq">中心频率</string>
+    <string name="filter_center_freq_desc">带通/陷波滤波器的中心频率 (Hz)</string>
+    <string name="filter_center_freq_hint">20 ~ 20000 Hz</string>
+    <string name="filter_bandwidth">带宽</string>
+    <string name="filter_bandwidth_desc">带通/陷波滤波器的频率带宽 (Hz)</string>
+    <string name="filter_bandwidth_hint">10 ~ 5000 Hz</string>
+    <string name="filter_order">滤波器阶数</string>
+    <string name="filter_order_desc">阶数越高滤波越陡峭，但延迟增加</string>
+    <string name="filter_order_1">1阶</string>
+    <string name="filter_order_2">2阶</string>
+    <string name="filter_order_4">4阶</string>
+    <string name="filter_order_8">8阶</string>
+    <string name="filter_preset">预设</string>
+    <string name="filter_preset_none">无</string>
+    <string name="filter_preset_voice">人声</string>
+    <string name="filter_preset_bass">低音</string>
+    <string name="filter_preset_treble">高音</string>
+    
+    <!-- 示波器信息项 -->
+    <string name="info_oscilloscope_time_span">时间窗口</string>
+    <string name="info_oscilloscope_trigger">触发状态</string>
+    <string name="info_oscilloscope_sample_rate">采样率</string>
+    <string name="info_oscilloscope_zoom">缩放比例</string>
+    <string name="info_oscilloscope_peak">信号峰值</string>
+    <string name="info_oscilloscope_peak_to_peak">峰峰值</string>
+    <string name="info_oscilloscope_rms">有效值(RMS)</string>
+    <string name="info_oscilloscope_position">历史位置</string>
+    
+    <!-- 瀑布图信息项 -->
+    <string name="info_waterfall_peak_freq">峰值频率</string>
+    <string name="info_waterfall_peak_amp">峰值幅度</string>
+    <string name="info_waterfall_resolution">时间分辨率</string>
+    <string name="info_waterfall_fft">FFT大小</string>
+    <string name="info_waterfall_scale_mode">频率刻度</string>
+    <string name="info_waterfall_sensitivity">灵敏度</string>
+    
+    <!-- 可视化模式设置 -->
+    <string name="tab_visualizer">可视化</string>
+    <string name="visualizer_settings">可视化设置</string>
+    <string name="visualizer_bar_count">频段数</string>
+    <string name="visualizer_bar_count_desc">显示的频谱条数量（8～64）</string>
+    <string name="visualizer_sensitivity">灵敏度</string>
+    <string name="visualizer_sensitivity_desc">调整频谱条的响应灵敏度</string>
+    <string name="visualizer_slope">频谱斜率</string>
+    <string name="visualizer_slope_desc">补偿高频衰减，使各频段显示更均衡</string>
+    <string name="visualizer_bar_gap">条间距</string>
+    <string name="visualizer_bar_gap_desc">频谱条之间的间隔比例</string>
+    <string name="visualizer_peak_hold">峰值保持</string>
+    <string name="visualizer_peak_hold_desc">在频谱条顶部显示峰值指示</string>
+    <string name="visualizer_gradient">渐变色</string>
+    <string name="visualizer_gradient_desc">使用从底部到顶部的颜色渐变</string>
+    
+    <!-- 可视化信息项 -->
+    <string name="info_visualizer_peak_freq">峰值频率</string>
+    <string name="info_visualizer_peak_amp">峰值幅度</string>
+    <string name="info_visualizer_bar_count">频段数</string>
+    <string name="info_visualizer_sensitivity">灵敏度</string>
+    
+    <!-- 分贝计设置 -->
+    <string name="tab_sound_level_meter">分贝计</string>
+    <string name="slm_settings">分贝计设置</string>
+    <string name="slm_weighting">加权类型</string>
+    <string name="slm_weighting_desc">频率加权滤波器类型</string>
+    <string name="slm_weighting_a">A 加权 (dBA)</string>
+    <string name="slm_weighting_c">C 加权 (dBC)</string>
+    <string name="slm_weighting_z">Z 加权 (dBZ)</string>
+    <string name="slm_weighting_flat">无加权 (Flat)</string>
+    <string name="slm_response_time">响应时间</string>
+    <string name="slm_response_time_desc">声级计的响应速度</string>
+    <string name="slm_response_fast">快速 (125ms)</string>
+    <string name="slm_response_slow">慢速 (1s)</string>
+    <string name="slm_calibration">校准</string>
+    <string name="slm_calibration_desc">校准偏移量（dB），使显示值与标准声级计一致</string>
+    <string name="slm_calibration_hint">输入校准偏移量（通常 70~120 dB）</string>
+    <string name="slm_show_spl">显示 SPL</string>
+    <string name="slm_show_spl_desc">显示校准后的声压级（SPL），关闭则显示 dBFS</string>
+    <string name="slm_calibration_guide">校准指南</string>
+    <string name="slm_calibration_guide_text">1. 使用已知声压级的声源（如94dB校准器）\n2. 或使用标准声级计作为参考\n3. 调整偏移量使显示值与参考一致</string>
+</resources>

@@ -1,0 +1,2741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <!-- 左侧选项卡（可滚动） -->
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/surface_light"
+        android:scrollbars="none"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="8dp">
+
+            <RadioGroup
+                android:id="@+id/tabGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/tabGeneral"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_general"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_color"
+                    android:button="@null"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/tab_selector_background"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/tabSpectrum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_spectrum"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_color"
+                    android:button="@null"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/tab_selector_background" />
+
+                <RadioButton
+                    android:id="@+id/tabOscilloscope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_oscilloscope"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_color"
+                    android:button="@null"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/tab_selector_background" />
+
+                <RadioButton
+                    android:id="@+id/tabVisualizer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_visualizer"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_color"
+                    android:button="@null"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/tab_selector_background" />
+
+                <RadioButton
+                    android:id="@+id/tabWaterfall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_waterfall"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_color"
+                    android:button="@null"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/tab_selector_background" />
+
+                <RadioButton
+                    android:id="@+id/tabSoundLevelMeter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_sound_level_meter"
+                    android:textSize="14sp"
+                    android:textColor="@color/tab_text_color"
+                    android:button="@null"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/tab_selector_background" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/divider" />
+
+    <!-- 右侧内容区域 -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <!-- 通用设置 -->
+        <ScrollView
+            android:id="@+id/panelGeneral"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="24dp">
+
+                <!-- 左列 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingEnd="16dp">
+
+                    <!-- 波形颜色 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/waveform_color"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- 预设颜色 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <View
+                            android:id="@+id/btnWaveformPreset1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@color/waveform_preset_1"
+                            android:contentDescription="青蓝"
+                            android:layout_marginEnd="8dp" />
+                        <View
+                            android:id="@+id/btnWaveformPreset2"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@color/waveform_preset_2"
+                            android:contentDescription="绿色"
+                            android:layout_marginEnd="8dp" />
+                        <View
+                            android:id="@+id/btnWaveformPreset3"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@color/waveform_preset_3"
+                            android:contentDescription="橙色"
+                            android:layout_marginEnd="8dp" />
+                        <View
+                            android:id="@+id/btnWaveformPreset4"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@color/waveform_preset_4"
+                            android:contentDescription="粉色" />
+                    </LinearLayout>
+
+                    <!-- 当前颜色 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/current_color"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="6dp" />
+                    <View
+                        android:id="@+id/waveformColorPreview"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@color/waveform_color"
+                        android:contentDescription="@string/click_color_to_adjust"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginBottom="6dp" />
+                    <TextView
+                        android:id="@+id/waveformColorHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/click_color_to_adjust"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- RGB 滑块 -->
+                    <LinearLayout
+                        android:id="@+id/waveformRgbSliders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginBottom="16dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                android:text="R"
+                                android:textColor="@color/primary_light"
+                                android:textSize="12sp" />
+                            <SeekBar
+                                android:id="@+id/seekBarWaveformR"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="255"
+                                android:progress="56" />
+                            <TextView
+                                android:id="@+id/tvWaveformR"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textSize="11sp"
+                                android:gravity="end" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                android:text="G"
+                                android:textColor="@color/primary_light"
+                                android:textSize="12sp" />
+                            <SeekBar
+                                android:id="@+id/seekBarWaveformG"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="255"
+                                android:progress="189" />
+                            <TextView
+                                android:id="@+id/tvWaveformG"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textSize="11sp"
+                                android:gravity="end" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                android:text="B"
+                                android:textColor="@color/primary_light"
+                                android:textSize="12sp" />
+                            <SeekBar
+                                android:id="@+id/seekBarWaveformB"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="255"
+                                android:progress="248" />
+                            <TextView
+                                android:id="@+id/tvWaveformB"
+                                android:layout_width="32dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textSize="11sp"
+                                android:gravity="end" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 增益 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gain"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarGainSheet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="200"
+                            android:progress="100" />
+                        <TextView
+                            android:id="@+id/tvGainValueSheet"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="100%"
+                            android:gravity="end"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 信息面板显示 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/show_info_panel"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/show_info_panel_desc"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switchShowInfoPanel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 分隔线 -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider"
+                    android:layout_marginHorizontal="16dp" />
+
+                <!-- 右列：音源和FFT设置 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <!-- 信号源选项 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/audio_source"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupAudioSource"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <RadioButton
+                            android:id="@+id/radioAudioSourceMicRaw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/audio_source_mic_raw"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:checked="true" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/audio_source_mic_raw_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="6dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioAudioSourceMic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/audio_source_mic"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/audio_source_mic_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="6dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioAudioSourceSystem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/audio_source_system"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/audio_source_system_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginStart="32dp" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- 频谱设置 -->
+        <ScrollView
+            android:id="@+id/panelSpectrum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="24dp">
+
+                <!-- 左列 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingEnd="16dp">
+
+                    <!-- 信息栏显示项 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_items"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_items_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <CheckBox
+                                android:id="@+id/cbSpectrumInfoPeakFreq"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_spectrum_peak_freq"
+                                android:textSize="12sp"
+                                android:checked="true" />
+                            <CheckBox
+                                android:id="@+id/cbSpectrumInfoPeakAmp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_spectrum_peak_amp"
+                                android:textSize="12sp"
+                                android:checked="true" />
+                            <CheckBox
+                                android:id="@+id/cbSpectrumInfoFps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_spectrum_fps"
+                                android:textSize="12sp"
+                                android:checked="true" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <CheckBox
+                                android:id="@+id/cbSpectrumInfoFft"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_spectrum_fft"
+                                android:textSize="12sp"
+                                android:checked="true" />
+                            <CheckBox
+                                android:id="@+id/cbSpectrumInfoScaleMode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_spectrum_scale_mode"
+                                android:textSize="12sp"
+                                android:checked="false" />
+                            <CheckBox
+                                android:id="@+id/cbSpectrumInfoZoom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_spectrum_zoom"
+                                android:textSize="12sp"
+                                android:checked="false" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 频率缩放 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frequency_scale"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleScale"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScaleLinear"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/linear_scale"
+                            android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScaleLog"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/log_scale"
+                            android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScaleTwelveTet"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/twelve_tet_scale"
+                            android:textSize="11sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 频谱斜率 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/spectrum_slope"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="16dp">
+                        <!-- 第一行：-12, -9, -6 -->
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/toggleSlopeRow1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            app:singleSelection="true"
+                            app:selectionRequired="false">
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlopeNeg12"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="-12"
+                                android:textSize="12sp" />
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlopeNeg9"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="-9"
+                                android:textSize="12sp" />
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlopeNeg6"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="-6"
+                                android:textSize="12sp" />
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+                        <!-- 第二行：-3, 0, 3 -->
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/toggleSlopeRow2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            app:singleSelection="true"
+                            app:selectionRequired="false">
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlopeNeg3"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="-3"
+                                android:textSize="12sp" />
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlope0"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0"
+                                android:textSize="12sp" />
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlope3"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="3"
+                                android:textSize="12sp" />
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+                        <!-- 第三行：6, 9, 12 -->
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/toggleSlopeRow3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:singleSelection="true"
+                            app:selectionRequired="false">
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlope6"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="6"
+                                android:textSize="12sp" />
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlope9"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="9"
+                                android:textSize="12sp" />
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnSlope12"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="12"
+                                android:textSize="12sp" />
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 网格线粗细 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grid_stroke_width"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grid_stroke_width_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarSpectrumGridStrokeWidth"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="45"
+                            android:progress="5" />
+                        <TextView
+                            android:id="@+id/tvSpectrumGridStrokeWidth"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="1.0"
+                            android:gravity="end"
+                            android:minWidth="56dp"
+                            android:paddingStart="12dp"
+                            android:layout_marginStart="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- 频率标记线粗细 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/marker_stroke_width"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/marker_stroke_width_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarSpectrumMarkerStrokeWidth"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="45"
+                            android:progress="10" />
+                        <TextView
+                            android:id="@+id/tvSpectrumMarkerStrokeWidth"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="1.5"
+                            android:gravity="end"
+                            android:minWidth="56dp"
+                            android:paddingStart="12dp"
+                            android:layout_marginStart="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 分隔线 -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider"
+                    android:layout_marginHorizontal="16dp" />
+
+                <!-- 右列 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <!-- 显示选项 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="显示选项"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchFrequencyMarkerSheet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frequency_marker"
+                        android:textSize="13sp"
+                        android:checked="true"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchPeakDetectionSheet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/peak_detection"
+                        android:textSize="13sp"
+                        android:checked="true"
+                        android:layout_marginBottom="16dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 峰值检测阈值 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/peak_threshold_db"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarPeakThresholdDb"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="90"
+                            android:progress="60" />
+                        <TextView
+                            android:id="@+id/tvPeakThresholdDb"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="-60"
+                            android:gravity="end"
+                            android:minWidth="56dp"
+                            android:paddingStart="12dp"
+                            android:layout_marginStart="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- 峰值数量 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/peak_count"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarPeakCount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="9"
+                            android:progress="9" />
+                        <TextView
+                            android:id="@+id/tvPeakCount"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="10"
+                            android:gravity="end"
+                            android:minWidth="48dp"
+                            android:paddingStart="12dp"
+                            android:layout_marginStart="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 频谱 FFT 设置 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/spectrum_fft_size"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/spectrum_fft_size_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <RadioGroup
+                            android:id="@+id/radioGroupFFTSizeLeft"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical" />
+                        <RadioGroup
+                            android:id="@+id/radioGroupFFTSizeRight"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+
+                    <!-- 重叠率 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/overlap_ratio"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <SeekBar
+                            android:id="@+id/seekBarOverlap"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="50" />
+
+                        <TextView
+                            android:id="@+id/tvOverlapValue"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:minWidth="48dp"
+                            android:paddingStart="12dp"
+                            android:text="50%"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- FFT 信息提示 -->
+                    <TextView
+                        android:id="@+id/tvFFTInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_primary"
+                        android:padding="12dp"
+                        android:background="@color/surface_light"
+                        android:lineSpacingExtra="4dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- 示波器设置 -->
+        <ScrollView
+            android:id="@+id/panelOscilloscope"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="24dp">
+
+                <!-- 左列 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingEnd="16dp">
+
+                    <!-- 信息栏显示项 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_items"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_items_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoTimeSpan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_time_span"
+                                android:textSize="12sp"
+                                android:checked="true" />
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoTrigger"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_trigger"
+                                android:textSize="12sp"
+                                android:checked="true" />
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoSampleRate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_sample_rate"
+                                android:textSize="12sp"
+                                android:checked="true" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoZoom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_zoom"
+                                android:textSize="12sp"
+                                android:checked="false" />
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoPeak"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_peak"
+                                android:textSize="12sp"
+                                android:checked="false" />
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoPeakToPeak"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_peak_to_peak"
+                                android:textSize="12sp"
+                                android:checked="false" />
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoRms"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_rms"
+                                android:textSize="12sp"
+                                android:checked="false" />
+                            <CheckBox
+                                android:id="@+id/cbOscilloscopeInfoPosition"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/info_oscilloscope_position"
+                                android:textSize="12sp"
+                                android:checked="false" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 示波器线条粗细 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oscilloscope_stroke_width"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarOscilloscopeStrokeWidth"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="90"
+                            android:progress="10" />
+                        <TextView
+                            android:id="@+id/tvOscilloscopeStrokeWidth"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="2.0"
+                            android:gravity="end"
+                            android:minWidth="56dp"
+                            android:paddingStart="12dp"
+                            android:layout_marginStart="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- 示波器网格线粗细 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grid_stroke_width"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grid_stroke_width_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarOscilloscopeGridStrokeWidth"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="45"
+                            android:progress="5" />
+                        <TextView
+                            android:id="@+id/tvOscilloscopeGridStrokeWidth"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="1.0"
+                            android:gravity="end"
+                            android:minWidth="56dp"
+                            android:paddingStart="12dp"
+                            android:layout_marginStart="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- 中心线（零电平线）开关 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="显示零电平线"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="在波形中心显示白色参考线"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switchOscilloscopeCenterLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true" />
+                    </LinearLayout>
+
+                    <!-- 大窗口包络模式 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/oscilloscope_large_window_peak_envelope"
+                                android:textColor="@color/text_primary"
+                                android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/oscilloscope_large_window_peak_envelope_desc"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switchOscilloscopePeakEnvelope"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 缩放灵敏度 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scale_sensitivity"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scale_sensitivity_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleScaleSensitivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSensitivityLow"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/scale_sensitivity_low"
+                            android:textSize="13sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSensitivityMedium"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/scale_sensitivity_medium"
+                            android:textSize="13sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSensitivityHigh"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/scale_sensitivity_high"
+                            android:textSize="13sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                </LinearLayout>
+
+                <!-- 分隔线 -->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider"
+                    android:layout_marginHorizontal="16dp" />
+
+                <!-- 右列：触发设置 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <!-- 示波器同步选项 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oscilloscope_sync"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchOscilloscopeTrigger"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oscilloscope_trigger"
+                        android:textSize="13sp"
+                        android:checked="false"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oscilloscope_trigger_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- 触发模式 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_mode"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleTriggerMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnTriggerRising"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/trigger_mode_rising"
+                            android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnTriggerFalling"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/trigger_mode_falling"
+                            android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnTriggerBoth"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/trigger_mode_both"
+                            android:textSize="12sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <!-- 单次触发 -->
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchSingleTrigger"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/single_trigger"
+                        android:textSize="13sp"
+                        android:checked="false"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/single_trigger_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- 触发电平 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_level"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_level_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <SeekBar
+                            android:id="@+id/seekBarTriggerLevel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="90"
+                            android:progress="60" />
+                        <TextView
+                            android:id="@+id/tvTriggerLevel"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="-30 dB"
+                            android:gravity="end"
+                            android:minWidth="64dp"
+                            android:paddingStart="12dp"
+                            android:layout_marginStart="12dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- 触发稳定性设置 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_stability"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- 迟滞量 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_hysteresis"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="2dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_hysteresis_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="6dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <SeekBar
+                            android:id="@+id/seekBarTriggerHysteresis"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="30"
+                            android:progress="5" />
+                        <TextView
+                            android:id="@+id/tvTriggerHysteresis"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="5%"
+                            android:gravity="end"
+                            android:paddingStart="8dp" />
+                    </LinearLayout>
+
+                    <!-- 触发保持时间 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_holdoff"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="2dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_holdoff_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="6dp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleTriggerHoldoffMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnHoldoffAuto"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/trigger_holdoff_auto"
+                            android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnHoldoffManual"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/trigger_holdoff_manual"
+                            android:textSize="12sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+                    <LinearLayout
+                        android:id="@+id/layoutTriggerHoldoffManual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp"
+                        android:visibility="gone">
+                        <SeekBar
+                            android:id="@+id/seekBarTriggerHoldoff"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progress="10" />
+                        <TextView
+                            android:id="@+id/tvTriggerHoldoff"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:text="1.0 ms"
+                            android:gravity="end"
+                            android:paddingStart="8dp" />
+                    </LinearLayout>
+
+                    <!-- 噪声抑制 -->
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchTriggerNoiseReject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_noise_reject"
+                        android:textSize="13sp"
+                        android:checked="false"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trigger_noise_reject_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="12dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginVertical="16dp" />
+
+                    <!-- 信号滤波设置 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oscilloscope_filter"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/oscilloscope_filter_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- 启用滤波开关 -->
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchFilterEnabled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_enabled"
+                        android:textSize="13sp"
+                        android:checked="false"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- 滤波器预设 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_preset"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleFilterPreset"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterPresetNone"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_preset_none"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterPresetVoice"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_preset_voice"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterPresetBass"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_preset_bass"
+                            android:textSize="11sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleFilterPreset2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="false">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterPresetTreble"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_preset_treble"
+                            android:textSize="11sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <!-- 滤波器类型 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_type"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleFilterType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterLowpass"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_type_lowpass"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterHighpass"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_type_highpass"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterBandpass"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_type_bandpass"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterNotch"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_type_notch"
+                            android:textSize="11sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <!-- 截止频率（低通/高通用） -->
+                    <LinearLayout
+                        android:id="@+id/layoutFilterCutoff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/filter_cutoff_freq"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="4dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/filter_cutoff_freq_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="8dp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <SeekBar
+                                android:id="@+id/seekBarFilterCutoff"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="50" />
+                            <TextView
+                                android:id="@+id/tvFilterCutoff"
+                                android:layout_width="72dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:text="1000 Hz"
+                                android:gravity="end"
+                                android:minWidth="72dp"
+                                android:paddingStart="8dp"
+                                android:layout_marginStart="8dp"
+                                android:clickable="true"
+                                android:focusable="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 中心频率（带通/陷波用） -->
+                    <LinearLayout
+                        android:id="@+id/layoutFilterCenter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/filter_center_freq"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="4dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/filter_center_freq_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="8dp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <SeekBar
+                                android:id="@+id/seekBarFilterCenter"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="50" />
+                            <TextView
+                                android:id="@+id/tvFilterCenter"
+                                android:layout_width="72dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:text="1000 Hz"
+                                android:gravity="end"
+                                android:minWidth="72dp"
+                                android:paddingStart="8dp"
+                                android:layout_marginStart="8dp"
+                                android:clickable="true"
+                                android:focusable="true" />
+                        </LinearLayout>
+
+                        <!-- 带宽 -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/filter_bandwidth"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="4dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/filter_bandwidth_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="8dp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <SeekBar
+                                android:id="@+id/seekBarFilterBandwidth"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="30" />
+                            <TextView
+                                android:id="@+id/tvFilterBandwidth"
+                                android:layout_width="72dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:text="500 Hz"
+                                android:gravity="end"
+                                android:minWidth="72dp"
+                                android:paddingStart="8dp"
+                                android:layout_marginStart="8dp"
+                                android:clickable="true"
+                                android:focusable="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 滤波器阶数 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_order"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="4dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter_order_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10sp"
+                        android:layout_marginBottom="8dp" />
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleFilterOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterOrder1"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_order_1"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterOrder2"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_order_2"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterOrder4"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_order_4"
+                            android:textSize="11sp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnFilterOrder8"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/filter_order_8"
+                            android:textSize="11sp" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- 瀑布图设置 -->
+        <ScrollView
+            android:id="@+id/panelWaterfall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- 信息栏显示项 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/info_items"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/info_items_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <CheckBox
+                            android:id="@+id/cbWaterfallInfoPeakFreq"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_waterfall_peak_freq"
+                            android:textSize="12sp"
+                            android:checked="true" />
+                        <CheckBox
+                            android:id="@+id/cbWaterfallInfoPeakAmp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_waterfall_peak_amp"
+                            android:textSize="12sp"
+                            android:checked="false" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <CheckBox
+                            android:id="@+id/cbWaterfallInfoFft"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_waterfall_fft"
+                            android:textSize="12sp"
+                            android:checked="false" />
+                        <CheckBox
+                            android:id="@+id/cbWaterfallInfoScaleMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_waterfall_scale_mode"
+                            android:textSize="12sp"
+                            android:checked="false" />
+                        <CheckBox
+                            android:id="@+id/cbWaterfallInfoSensitivity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_waterfall_sensitivity"
+                            android:textSize="12sp"
+                            android:checked="true" />
+                        <CheckBox
+                            android:id="@+id/cbWaterfallInfoTimeResolution"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info_waterfall_resolution"
+                            android:textSize="12sp"
+                            android:checked="false" />
+                    </LinearLayout>
+                </LinearLayout>
+                
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 灵敏度设置 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waterfall_sensitivity"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waterfall_sensitivity_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="12dp" />
+                    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <SeekBar
+                        android:id="@+id/seekBarWaterfallSensitivity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="495"
+                        android:progress="5" />
+                    <TextView
+                        android:id="@+id/tvWaterfallSensitivity"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:text="1.0"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 瀑布图色板 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waterfall_color_palette"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waterfall_color_palette_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                <RadioGroup
+                    android:id="@+id/radioGroupWaterfallColorPalette"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+                    <RadioButton
+                        android:id="@+id/radioWaterfallColorRainbow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/waterfall_color_rainbow"
+                        android:textSize="12sp" />
+                    <RadioButton
+                        android:id="@+id/radioWaterfallColorGrayscale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/waterfall_color_grayscale"
+                        android:textSize="12sp" />
+                    <RadioButton
+                        android:id="@+id/radioWaterfallColorBlackRed"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/waterfall_color_blackred"
+                        android:textSize="12sp" />
+                    <RadioButton
+                        android:id="@+id/radioWaterfallColorBlueGreen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/waterfall_color_bluegreen"
+                        android:textSize="12sp" />
+                </RadioGroup>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 瀑布图 FFT 设置 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waterfall_fft_size"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waterfall_fft_size_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <RadioGroup
+                        android:id="@+id/radioGroupWaterfallFftLeft"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" />
+                    <RadioGroup
+                        android:id="@+id/radioGroupWaterfallFftRight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" />
+                </LinearLayout>
+
+                <!-- 瀑布图重叠率 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overlap_ratio"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overlap_ratio_info"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <SeekBar
+                        android:id="@+id/seekBarWaterfallOverlap"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="100"
+                        android:progress="0" />
+                    <TextView
+                        android:id="@+id/tvWaterfallOverlapValue"
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:minWidth="48dp"
+                        android:paddingStart="12dp"
+                        android:text="0%"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- 可视化设置 -->
+        <ScrollView
+            android:id="@+id/panelVisualizer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- 频段数 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_bar_count"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_bar_count_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <SeekBar
+                        android:id="@+id/seekBarVisualizerBarCount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="56"
+                        android:progress="24" />
+                    <TextView
+                        android:id="@+id/tvVisualizerBarCount"
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:text="32"
+                        android:gravity="end"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 灵敏度 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_sensitivity"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_sensitivity_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <SeekBar
+                        android:id="@+id/seekBarVisualizerSensitivity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="95"
+                        android:progress="10" />
+                    <TextView
+                        android:id="@+id/tvVisualizerSensitivity"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:text="1.5"
+                        android:gravity="end"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 频谱斜率 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_slope"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_slope_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <SeekBar
+                        android:id="@+id/seekBarVisualizerSlope"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="24"
+                        android:progress="15" />
+                    <TextView
+                        android:id="@+id/tvVisualizerSlope"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:text="3"
+                        android:gravity="end"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 条间距 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_bar_gap"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_bar_gap_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                    
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+                    <SeekBar
+                        android:id="@+id/seekBarVisualizerBarGap"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="40"
+                        android:progress="10" />
+                    <TextView
+                        android:id="@+id/tvVisualizerBarGap"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:text="20%"
+                        android:gravity="end"
+                        android:layout_marginStart="12dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 显示选项 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="显示选项"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchVisualizerPeakHold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_peak_hold"
+                    android:textSize="13sp"
+                    android:checked="true"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_peak_hold_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="12dp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchVisualizerGradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_gradient"
+                    android:textSize="13sp"
+                    android:checked="true"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visualizer_gradient_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- 分贝计设置 -->
+        <ScrollView
+            android:id="@+id/panelSoundLevelMeter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- 加权类型 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_weighting"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_weighting_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                    
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleSlmWeighting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlmWeightingA"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/slm_weighting_a"
+                        android:textSize="10sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlmWeightingC"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/slm_weighting_c"
+                        android:textSize="10sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlmWeightingZ"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/slm_weighting_z"
+                        android:textSize="10sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlmWeightingFlat"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/slm_weighting_flat"
+                        android:textSize="10sp" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 响应时间 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_response_time"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_response_time_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+                    
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleSlmResponseTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlmResponseFast"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/slm_response_fast"
+                        android:textSize="11sp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSlmResponseSlow"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/slm_response_slow"
+                        android:textSize="11sp" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 校准 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_calibration"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                    
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_calibration_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvSlmCalibration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="94 dB"
+                    android:textColor="@color/text_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_calibration_guide_text"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="16dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginVertical="16dp" />
+
+                <!-- 显示模式 -->
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchSlmShowSPL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_show_spl"
+                    android:textSize="13sp"
+                    android:checked="true"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slm_show_spl_desc"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+
+</LinearLayout>

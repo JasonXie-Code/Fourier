@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主色：钢蓝，专业、可靠 -->
+    <color name="primary">#2563EB</color>
+    <color name="primary_dark">#1D4ED8</color>
+    <color name="primary_light">#3B82F6</color>
+    <!-- 辅色：青蓝，仪表/数据感 -->
+    <color name="secondary">#0EA5E9</color>
+    <color name="secondary_dark">#0284C7</color>
+    <color name="secondary_light">#38BDF8</color>
+    <!-- 背景与表面 -->
+    <color name="background">#0F1419</color>
+    <color name="surface">#1A2332</color>
+    <color name="surface_panel">#CC1A2332</color>
+    <color name="surface_light">#331A2332</color>
+    <!-- 分隔与边框 -->
+    <color name="divider">#33E2E8F0</color>
+    <!-- 文字 -->
+    <color name="text_primary">#F1F5F9</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_color">#F1F5F9</color>
+    <!-- 图表：频谱/波形/网格/峰值 -->
+    <color name="spectrum_color">#22C55E</color>
+    <color name="spectrum_fill">#3322C55E</color>
+    <color name="waveform_color">#38BDF8</color>
+    <!-- 波形预设颜色：青蓝、绿、橙、粉 -->
+    <color name="waveform_preset_1">#38BDF8</color>
+    <color name="waveform_preset_2">#22C55E</color>
+    <color name="waveform_preset_3">#F97316</color>
+    <color name="waveform_preset_4">#EC4899</color>
+    <color name="grid_color">#33E2E8F0</color>
+    <color name="peak_color">#F43F5E</color>
+    <!-- 兼容旧引用 -->
+    <color name="black">#0F1419</color>
+    <color name="white">#F1F5F9</color>
+    <color name="purple_200">#A5B4FC</color>
+    <color name="purple_500">#6366F1</color>
+    <color name="purple_700">#4F46E5</color>
+    <color name="teal_200">#5EEAD4</color>
+    <color name="teal_700">#0D9488</color>
+</resources>
