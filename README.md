@@ -275,8 +275,9 @@ The figures below are authentic in-app captures for feature identification. Use 
 | 文件 | [`releases/Fourier-audio-analyzer-v1.0.0.apk`](releases/Fourier-audio-analyzer-v1.0.0.apk) |
 | 直链 | [GitHub raw 下载](https://github.com/JasonXie-Code/Fourier/raw/main/releases/Fourier-audio-analyzer-v1.0.0.apk) |
 | SHA-256 | `6970F2638AAE56EE2B60A8277265407DD274F19CBA4FF5E51B3CAD70A9FED452` |
+| GitHub Releases 侧栏 | 需在网页 **[创建 Release](https://github.com/JasonXie-Code/Fourier/releases/new?tag=v1.0.0)**（标签 `v1.0.0` 已推送），并上传 APK 后才会显示；详见 [`releases/README.md`](releases/README.md) 开头说明。 |
 
-*English:* A **release build** APK is published under `releases/` (signed with the **Android debug keystore** for easy sideloading—**not** a Play Store production key). See [`releases/README.md`](releases/README.md) for integrity checks and install notes.
+*English:* A **release build** APK is published under `releases/` (signed with the **Android debug keystore** for easy sideloading—**not** a Play Store production key). See [`releases/README.md`](releases/README.md) for integrity checks and install notes. **GitHub’s Releases sidebar** requires **[publishing a Release](https://github.com/JasonXie-Code/Fourier/releases/new?tag=v1.0.0)** (tag `v1.0.0` is already on the remote) and attaching the APK.
 
 <a id="en-download"></a>
 
@@ -289,6 +290,7 @@ The repository ships a **release-built** APK aligned with `versionName` (signed 
 | File | [`releases/Fourier-audio-analyzer-v1.0.0.apk`](releases/Fourier-audio-analyzer-v1.0.0.apk) |
 | Direct link | [Raw download on GitHub](https://github.com/JasonXie-Code/Fourier/raw/main/releases/Fourier-audio-analyzer-v1.0.0.apk) |
 | SHA-256 | `6970F2638AAE56EE2B60A8277265407DD274F19CBA4FF5E51B3CAD70A9FED452` |
+| GitHub Releases UI | Publish a **[Release](https://github.com/JasonXie-Code/Fourier/releases/new?tag=v1.0.0)** (tag `v1.0.0` is pushed) and attach the APK so it appears in the sidebar—see [`releases/README.md`](releases/README.md). |
 
 ---
 
