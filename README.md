@@ -21,8 +21,9 @@
 | [2. 学习目标与适用场景](#cn-learning) | [2. Learning goals & use cases](#en-learning) |
 | [3. 核心能力](#cn-features) | [3. Core capabilities](#en-features) |
 | [4. 界面与功能截图](#cn-gallery) | [4. Screenshots & UI tour](#en-gallery) |
-| [5. 构建与运行](#cn-build) | [5. Build & run](#en-build) |
-| [6. 文档索引](#cn-docs) | [6. Documentation index](#en-docs) |
+| [5. 预编译 APK（发布）](#cn-download) | [5. Prebuilt APK (release)](#en-download) |
+| [6. 构建与运行](#cn-build) | [6. Build & run](#en-build) |
+| [7. 文档索引](#cn-docs) | [7. Documentation index](#en-docs) |
 
 **截图快速跳转 · Quick jump to figures**  
 [通用设置](#cn-fig-general) · [频谱设置](#cn-fig-spectrum-settings) · [示波器设置](#cn-fig-scope-settings) · [可视化设置](#cn-fig-vis-settings) · [瀑布图设置](#cn-fig-wf-settings) · [分贝计设置](#cn-fig-spl-settings) · [频谱视图](#cn-fig-spectrum-bars) · [频谱曲线](#cn-fig-spectrum-line) · [示波器](#cn-fig-scope) · [瀑布图](#cn-fig-waterfall) · [声级计](#cn-fig-spl)  
@@ -263,9 +264,37 @@ The figures below are authentic in-app captures for feature identification. Use 
 
 ---
 
+<a id="cn-download"></a>
+
+## 5. 预编译 APK（发布）
+
+仓库提供与当前 `versionName` 对齐的 **Release 构建**安装包（经调试证书签名，便于侧载体验；**非**应用商店正式证书，详见 [`releases/README.md`](releases/README.md)）。
+
+| 项目 | 说明 |
+|------|------|
+| 文件 | [`releases/Fourier-audio-analyzer-v1.0.0.apk`](releases/Fourier-audio-analyzer-v1.0.0.apk) |
+| 直链 | [GitHub raw 下载](https://github.com/JasonXie-Code/Fourier/raw/main/releases/Fourier-audio-analyzer-v1.0.0.apk) |
+| SHA-256 | `6970F2638AAE56EE2B60A8277265407DD274F19CBA4FF5E51B3CAD70A9FED452` |
+
+*English:* A **release build** APK is published under `releases/` (signed with the **Android debug keystore** for easy sideloading—**not** a Play Store production key). See [`releases/README.md`](releases/README.md) for integrity checks and install notes.
+
+<a id="en-download"></a>
+
+## 5. Prebuilt APK (release)
+
+The repository ships a **release-built** APK aligned with `versionName` (signed with the **debug keystore** for sideloading—**not** a Play Store signing key; details in [`releases/README.md`](releases/README.md)).
+
+| Item | Details |
+|------|---------|
+| File | [`releases/Fourier-audio-analyzer-v1.0.0.apk`](releases/Fourier-audio-analyzer-v1.0.0.apk) |
+| Direct link | [Raw download on GitHub](https://github.com/JasonXie-Code/Fourier/raw/main/releases/Fourier-audio-analyzer-v1.0.0.apk) |
+| SHA-256 | `6970F2638AAE56EE2B60A8277265407DD274F19CBA4FF5E51B3CAD70A9FED452` |
+
+---
+
 <a id="cn-build"></a>
 
-## 5. 构建与运行
+## 6. 构建与运行
 
 1. 使用 **Android Studio** 或命令行打开 `android/` 目录下的工程。  
 2. 配置 **Android SDK** 与 **JDK**（版本以 `android/build.gradle.kts` 与 Gradle Wrapper 为准）。  
@@ -275,7 +304,7 @@ The figures below are authentic in-app captures for feature identification. Use 
 
 <a id="en-build"></a>
 
-## 5. Build & run
+## 6. Build & run
 
 1. Open the Gradle project under `android/` with **Android Studio** or the command line.  
 2. Install a compatible **Android SDK** and **JDK** (see `android/build.gradle.kts` and the Gradle wrapper).  
@@ -285,7 +314,7 @@ The figures below are authentic in-app captures for feature identification. Use 
 
 <a id="cn-docs"></a>
 
-## 6. 文档索引
+## 7. 文档索引
 
 | 文档 | 说明 |
 |------|------|
@@ -293,10 +322,11 @@ The figures below are authentic in-app captures for feature identification. Use 
 | [`ROADMAP.md`](ROADMAP.md) | 路线图与计划 |
 | [`Docs/`](Docs/) | 功能说明、离线构建与开发笔记 |
 | [`Photos/README.md`](Photos/README.md) | 截图文件列表与索引 |
+| [`releases/README.md`](releases/README.md) | 预编译 APK 说明与校验 |
 
 <a id="en-docs"></a>
 
-## 6. Documentation index
+## 7. Documentation index
 
 | Doc | Description |
 |-----|-------------|
@@ -304,6 +334,7 @@ The figures below are authentic in-app captures for feature identification. Use 
 | [`ROADMAP.md`](ROADMAP.md) | Roadmap |
 | [`Docs/`](Docs/) | Feature notes, offline build, dev docs |
 | [`Photos/README.md`](Photos/README.md) | Screenshot file list |
+| [`releases/README.md`](releases/README.md) | Prebuilt APK notes & checksums |
 
 ---
 

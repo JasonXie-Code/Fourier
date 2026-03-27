@@ -14,8 +14,10 @@
 .cxx
 local.properties
 
-# Built application files
+# Built application files（发布包见 releases/ 目录例外）
 *.apk
+!releases/*.apk
+releases/*.idsig
 *.aar
 *.ap_
 *.aab

@@ -48,6 +48,7 @@ Fourier/
 ├── Docs/                       # 功能说明与开发文档
 ├── Photos/                     # 仓库主页（README）截图与索引
 ├── README.md                   # 仓库主页（中英双语说明，GitHub 默认展示）
+├── releases/                   # 预编译 APK 与发布说明（见该目录 README）
 ├── scripts/                    # 构建/部署辅助脚本（含 `copy_to_github.py`：镜像到上级 `Github/` 供推送远程）
 ├── tools/                      # 本地 ADB / JDK / Python 工具包
 ├── PROJECT.md                  # 本文件
